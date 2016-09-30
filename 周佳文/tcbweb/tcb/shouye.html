@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>360同城帮</title>
+	<style type="text/css">
+		@import url(css/shouye.css);
+	</style>
+	<script src="http://webapi.amap.com/maps?v=1.3&key=0d3a7b94d556eaedd86480ae76e46c45"></script>
+	<script src="lib/require.js" data-main = "main.js"></script>
+</head>
+<body>
+	<!-- 模态化窗口地图 -->
+	<div id="model-map">
+		<div class="panel">
+			<div class="hd">
+				<h3>地图模式</h3>
+				<span id="map_close"></span>
+			</div>
+			<div id="container"></div>
+		</div>
+		<!-- <div id="tip"></div> -->
+	</div>
+	<div id="webHead">
+		<div class="add_info">
+			<ul>
+				<li>
+					<span class="city">深圳</span>
+					<a href="###" class="changeCity">
+						[切换城市]
+						<div class="pop-city">
+							<div class="cityList">
+								<p>
+									城市列表
+									<span title="关闭" class="close"></span>
+								</p>
+							</div>
+							<div class="cities">
+								<ul>
+									<li>
+										<h4>热门</h4>
+										<p>
+											<a href="###">北京</a>
+											<a href="###">上海</a>
+											<a href="###">广州</a>
+											<a href="###">天津</a>
+											<a href="###">西安</a>
+											<a href="###">深圳</a>
+											<a href="###">武汉</a>
+											<a href="###">成都</a>
+											<a href="###">重庆</a>
+											<a href="###">南京</a>
+											<a href="###">沈阳</a>
+											<a href="###">杭州</a>
+											<a href="###">济南</a>
+											<a href="###">郑州</a>
+											<a href="###">青岛</a>
+											<a href="###">苏州</a>
+										</p>
+									</li>
+									<li>
+										<h4>拼音</h4>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="###">同城帮首页</a>
+				</li>
+			</ul>
+		</div>
+		<div class="register">
+			<ul>
+				<li><a href="###">登录</a></li>
+				<li><a href="###">注册</a></li>
+				<li><a href="###">我的订单</a></li>
+				<li><span class="item">客服电话:4000-399-360</span></li>
+				<li><span class="item">客户服务</span></li>
+				<li><a href="###">论坛</a></li>
+				<li><a href="###" class="advice">投诉建议</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="index-top-banner">
+		<div class="index-top-banner_row">
+			<div class="col-left">
+				<a href="###" class="logo"></a>
+			</div>
+			<div class="col-right">
+				<ul class="top-banner">
+					<li>
+						<a href="liangpin.html" class="ershou">
+							二手良品
+							<i class="hot"></i>
+						</a>
+					</li>
+					<li><a href="huishou.html">手机回收</a></li>
+					<li><a href="shoujiweixiu.html">手机维修</a></li>
+					<li><a href="dnwx.html">电脑维修</a></li>
+					<li><a href="yjhx.html">以旧换新</a></li>
+					<li><a href="sjzy.html">手机租用</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="top-cate">
+		<div class="catelist">
+			<ul class="catelist-main">
+				<li class="items">
+					<a href="###" class="pngfix catexsj">修手机/Pad</a>
+				</li>
+				<li class="items">
+					<a href="###" class="pngfix catexdn">修电脑</a>
+				</li>
+				<li class="items">
+					<a href="###" class="pngfix catemsj">卖手机</a>
+				</li>
+				<li class="items">
+					<a href="###" class="pngfix cateesj">买二手机</a>
+				</li>
+			</ul>
+			<div class="catelist-sub">
+				<div class="catelist-sub-inner">
+					<div class="sub-item" id="sub-item-xsj">
+						<div class="twolist">
+							<span>屏幕   ></span>
+							<p class="p1">
+								<a href="###">屏碎，但显示正常</a>
+								<a href="###">屏幕不显示或花屏</a>
+								<a href="###">屏幕触摸失灵</a>
+								<a href="###">Pad更换屏幕</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>电池/充电/开机   ></span>
+							<p class="p1">
+								<a href="###">电池问题</a>
+								<a href="###">不开机</a>
+								<a href="###">充电(连接)问题</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>按键   ></span>
+							<p class="p1">
+								<a href="###">开关键失灵</a>
+								<a href="###">Home键失灵</a>
+								<a href="###">音量键失灵</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>声音/震动   ></span>
+							<p class="p1">
+								<a href="###">听筒问题</a>
+								<a href="###">麦克风问题</a>
+								<a href="###">外放扬声器问题</a>
+								<a href="###">耳机插口故障</a>
+								<a href="###">震动功能失效</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>拍照/录像   ></span>
+							<p class="p1">
+								<a href="###">后摄像头无法拍照</a>
+								<a href="###">前摄像头拍照故障</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>外壳/边框   ></span>
+							<p class="p1">
+								<a href="###">中框变形</a>
+								<a href="###">手机换彩壳</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>进水入液/主板故障   ></span>
+							<p class="p1">
+								<a href="###">进水入液</a>
+								<a href="###">手机主板故障</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>其他故障   ></span>
+							<p class="p1">
+								<a href="###">软件升级刷机</a>
+								<a href="###">wifi功能故障</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span>个性化服务   ></span>
+							<p class="p1">
+								<a href="###">点亮iPhone logo</a>
+								<a href="###">蓝光护眼钢化膜</a>
+								<a href="###">极透高清钢化膜</a>
+								<a href="###">爱机深度清洁</a>
+								<a href="###">手机换彩壳</a>
+							</p>
+						</div>
+					</div>
+					<div class="sub-item" id="sub-item-xdn">
+						<div class="twolist">
+							<span class="hotProblem">热门问题：</span>
+							<p class="p2 p3">
+								<a href="###">系统重装</a>
+								<a href="###">电脑清灰</a>
+								<a href="###">数据恢复</a>
+								<a href="###">系统故障修复</a>
+								<a href="###">驱动安装</a>
+								<a href="###">游戏加速</a>
+							</p>
+						</div>
+						<div class="twolist">
+							<span class="hotProblem">其他问题：</span>
+							<p class="p2 p3">
+								<a href="###">开机加速</a>
+								<a href="###">网速优化</a>
+								<a href="###">蓝屏死机</a>
+								<a href="###">电脑没声音</a>
+								<a href="###">路由器调试</a>
+								<a href="###">无法上网</a>
+								<a href="###">家庭局域网</a>
+								<a href="###">更换风扇</a>
+								<a href="###">病毒查杀</a>
+							</p>
+						</div>
+					</div>
+					<div class="sub-item" id="sub-item-msj">
+						<div class="twolist">
+							<p class="p2">
+								<a href="###">苹果</a>
+								<a href="###">三星</a>
+								<a href="###">小米</a>
+								<a href="###">华为</a>
+								<a href="###">步步高</a>
+								<a href="###">OPPO</a>
+								<a href="###">HTC</a>
+								<a href="###">魅族</a>
+								<a href="###">索尼</a>
+								<a href="###">联想</a>
+								<a href="###">酷派</a>
+								<a href="###">中兴</a>
+								<a href="###">诺基亚</a>
+								<a href="###">朵唯</a>
+								<a href="###">乐视</a>
+								<a href="###">LG</a>
+								<a href="###">黑莓</a>
+								<a href="###">TCL</a>
+								<a href="###">锤子</a>
+								<a href="###">一加</a>
+								<a href="###">美图秀秀</a>
+								<a href="###">微软</a>
+								<a href="###">金立</a>
+								<a href="###">360手机</a>
+								<a href="###">摩托罗拉</a>
+							</p>
+						</div>
+					</div>
+					<div class="sub-item" id="sub-item-mes">
+						<div class="twolist">
+							<p class="p2">
+								<a href="###">三星</a>
+								<a href="###">苹果</a>
+								<a href="###">小米</a>
+								<a href="###">华为</a>
+								<a href="###">HTC</a>
+								<a href="###">酷派</a>
+								<a href="###">索尼</a>
+								<a href="###">魅族</a>
+								<a href="###">联想</a>
+								<a href="###">努比亚</a>
+								<a href="###">锤子</a>
+								<a href="###">vivo</a>
+								<a href="###">OPPO</a>
+								<a href="###">乐视</a>
+								<a href="###">360手机</a>
+								<a href="###">美图秀秀</a>
+								<a href="###">微软</a>
+								<a href="###">黑莓</a>
+								<a href="###">戴尔</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="topcate-slide">
+			<div class="topcate-slide-inner">
+				<div class="slide-inner">
+					<div id="slide-list">
+						<div class="slide-item">
+							<a href="###">
+								<img src="./images/shouye/lunbo.jpg" alt="" id="slideImg">
+							</a>
+						</div>
+						<!-- <div class="slide-item">
+							<a href="###">
+								<img src="./images/lunbo1.jpg" alt="" id="slideImg">
+							</a>
+						</div>
+						<div class="slide-item">
+							<a href="###">
+								<img src="./images/lunbo2.jpg" alt="" id="slideImg">
+							</a>
+						</div>
+						<div class="slide-item">
+							<a href="###">
+								<img src="./images/lunbo3.gif" alt="" id="slideImg">
+							</a>
+						</div> -->
+					</div>
+				</div>
+				<div class="slide-ctrl">
+					<ul>
+						<li class="ctrl-item"></li>
+						<li class="ctrl-item"></li>
+						<li class="ctrl-item"></li>
+						<li class="ctrl-item"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="top-cate-small">
+			<div class="top-cate-small-inner">
+				<ul>
+					<li class="item1">
+						<a href="">
+							<img src="./images/shouye/iphone1.jpg" alt="">
+						</a>
+					</li>
+					<li class="item1">
+						<a href="">
+							<img src="./images/shouye/iphone2.jpg" alt="">
+						</a>
+					</li>
+					<li class="item1">
+						<a href="">
+							<img src="./images/shouye/iphone3.jpg" alt="">
+						</a>
+					</li>
+					<li class="item1">
+						<a href="">
+							<img src="./images/shouye/iphone4.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hot-hs">
+		<div class="tit">
+			<div class="tit-inner">
+				<h2>热门手机回收</h2>
+				<a href="###" class="go-more">查看更多</a>
+			</div>
+		</div>
+		<div class="icon">
+			<div class="icon-inner">
+				<div class="hot1">
+					<a href="###"></a>
+				</div>
+				<div class="hot2">
+					<ul>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/hot2.jpg" alt="">
+									
+								</div>
+								<p>苹果iphone6</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/hot3.jpg" alt="">
+									
+								</div>
+								<p>苹果iphone 5s</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/hot4.jpg" alt="">
+									
+								</div>
+								<p>小米	M4</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/hot5.jpg" alt="">
+									
+								</div>
+								<p>华为 Mate7</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/hot6.jpg" alt="" class="hot6">
+									
+								</div>
+								<p>魅族	MX5</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hot-lp">
+		<div class="tit">
+			<div class="tit-inner">
+				<h2>二手手机良品</h2>
+				<a href="###" class="go-more">查看更多</a>
+			</div>
+		</div>
+		<div class="icon">
+			<div class="icon-inner">
+				<div class="hot1 hot11">
+					<a href="###"></a>
+				</div>
+				<div class="hot2">
+					<ul>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/lp2.png" alt="">
+								</div>
+								<p>小米 4</p>
+								<p class="price">￥ 1200</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="././images/shouye/lp3.jpg" alt="">
+								</div>
+								<p>三星 A9</p>
+								<p class="price">￥ 1400</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/lp4.jpg" alt="">
+								</div>
+								<p>乐视 超级手机乐 1S</p>
+								<p class="price">￥ 1300</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/lp5.jpg" alt="">
+								</div>
+								<p>360手机 奇酷青春版</p>
+								<p class="price">￥ 900</p>
+							</a>
+						</li>
+						<li class="item2">
+							<a href="">
+								<div class="hots">
+									<img src="./images/shouye/lp6.jpg" alt="" class="hot6">
+								</div>
+								<p>苹果iphone6 Plus</p>
+								<p class="price">￥ 2600</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="tit">
+			<div class="tit-inner">
+				<h2>到店维修</h2>
+			</div>
+		</div>
+		<div class="icon">
+			<div class="icon-inner">
+				<div class="icon-left">
+					<div class="shop-list">
+						<div class="row">
+							<div class="icon-left-fixed">
+								<div class="area-select">
+									<div class="areasel">
+										<span>深圳</span>
+									</div>
+									<div class="areasel">
+										<span>选择区县</span>
+									</div>
+								</div>
+							</div>
+							<div class="icon-right-addr">
+								<div class="addr-search-box">
+									<form class="addr-search" id="addrSearchForm">
+										<input type="text" placeholder="输入你的位置查找附近的商家" class="addr-ipt">
+										<input type="submit" value="搜索" class="addr-btn" id="search-wrap">
+									</form>
+									<div id="suggest-wrap">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="shop-list-wrap">
+						<div class="shop-list-filter">
+							<ul class="sort-type">
+								<li><a href="###">默认排序</a></li>
+								<li><a href="###">按成交量</a></li>
+								<li><a href="###">按人气</a></li>
+							</ul>
+							<div class="filter-check">
+								<span>
+									<input type="checkbox" class="chkbox">
+									先行赔付
+								</span>
+							</div>
+							<div class="extra">
+								<a href="" class="mode-map" id="modesMap">地图模式</a>
+							</div>
+						</div>
+						<div class="shopList"></div>
+						<div class="shop-pagination">
+							<div class="pages">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="icon-right">
+					<h3 class="tits">商家好评榜</h3>
+					<div class="cont-list">
+						<ul>
+							<li class="cont-list-item">
+								<div class="s-num s-num-red">①</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num s-num-red">②</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num s-num-red">③</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num">④</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num">⑤</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num">⑥</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+							<li class="cont-list-item">
+								<div class="s-num">⑦</div>
+								<div class="haoping-pic">
+									<a href="###">
+										<img src="" alt="">
+									</a>
+								</div>
+								<div class="conts">
+									<span>
+										<a href="">能帮科技</a>
+									</span>
+									<p>1119条评论</p>
+								</div>
+							</li>
+						</ul>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="doc-ft">
+		<div class="foot-nav">
+			<div class="buy">
+				<i class="shops"></i>
+				<ul class="foots">
+					<li>购物指南</li>
+					<li><a href="###">购物流程</a></li>
+					<li><a href="###">用户注册</a></li>
+					<li><a href="###">帮助文档</a></li>
+				</ul>
+			</div>
+			<div class="buy">
+				<i class="shops1"></i>
+				<ul class="foots">
+					<li>支付方式</li>
+					<li><a href="###">在线支付</a></li>
+					<li><a href="###">当面付款</a></li>
+				</ul>
+			</div>
+			<div class="buy">
+				<i class="shops2"></i>
+				<ul class="foots">
+					<li>售后服务</li>
+					<li><a href="###">投诉建议</a></li>
+				</ul>
+			</div>
+			<div class="buy">
+				<i class="shops3"></i>
+				<ul class="foots">
+					<li>特色保障</li>
+					<li><a href="###">360担保支付</a></li>
+				</ul>
+			</div>
+			<div class="buy">
+				<i class="shops4"></i>
+				<ul class="foots">
+					<li>商家合作</li>
+					<li><a href="###" class="jiameng">加盟同城帮</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copy-right-info">
+			<p class="link">
+				<span class="item" style="padding: 0 10px">客服电话：4000-399-360</span>
+				<a href="###" style="padding-left: 10px">投诉建议</a>
+				<a href="###">网站地图</a>
+			</p>
+			<p>Copyright © 2005-2016  360.CN  All Rights Reserved  360安全中心</p>
+			<p><a>京ICP备08010314号-19</a>    京公网安备110000000006号</p>
+		</div>
+	</div>
+	<div class="fix">
+		<div class="fixed">
+			<div class="fixImg">
+				<a href=""></a>
+			</div>
+		</div>
+	</div>
+	<script src="js/ty.js"></script>
+</body>
+</html>

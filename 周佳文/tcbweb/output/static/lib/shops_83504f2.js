@@ -1,0 +1,1 @@
+define("shops",["jquery","handler"],function(t,n){return{listShop:function(){t.ajax({type:"get",url:"http://localhost:3000/tcb",success:function(t){console.log(t),n.handlerData(t)}})}}});

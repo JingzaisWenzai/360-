@@ -1,0 +1,14 @@
+{
+  "name": "tcb",
+  "version": "0.1.1",
+  "description": "同城帮服务",
+  "main": "tcbservice.js",
+  "scripts": {
+    "start": "node tcbservice.js"
+  },
+  "keywords": [
+    "tcb"
+  ],
+  "author": "zhou",
+  "license": "ISC"
+}

@@ -1,0 +1,1 @@
+var changeCity=document.getElementsByClassName("changeCity")[0],popCity=document.getElementsByClassName("pop-city")[0],close=document.getElementsByClassName("close")[0];changeCity.onclick=function(){popCity.style.display="block"},close.onclick=function(){popCity.style.display="none"};

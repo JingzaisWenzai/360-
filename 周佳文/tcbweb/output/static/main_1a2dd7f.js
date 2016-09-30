@@ -1,0 +1,1 @@
+requirejs.config({baseUrl:"lib",paths:{jquery:"jquery",backbone:"backbone",shops:"shops",action:"action",handler:"handler"}}),require(["shops","action","handler"],function(e,n,o){e.listShop(),n.lunbopic(),o.splist()});

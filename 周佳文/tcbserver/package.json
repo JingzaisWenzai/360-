@@ -1,0 +1,14 @@
+{
+  "name": "zzz",
+  "version": "0.1.1",
+  "description": "同城帮数据服务",
+  "main": "service",
+  "scripts": {
+    "start": "node service.js"
+  },
+  "keywords": [
+    "tcb"
+  ],
+  "author": "aaa",
+  "license": "ISC"
+}
